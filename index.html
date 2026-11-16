@@ -11,7 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
-  <script src="polish.js" defer></script>
 </head>
 <body>
   <main class="game-shell" id="game-shell">
@@ -20,12 +19,10 @@
       <div class="top-status"><span class="status-dot"></span> SAVE FILE <b>20</b></div>
       <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" title="Toggle ambient sound"><span aria-hidden="true">♫</span><span class="sound-label">SOUND OFF</span></button>
     </header>
-
     <section class="game-intro" aria-label="Birthday adventure introduction">
       <div><p class="kicker">A BIRTHDAY QUEST · EST. 2006</p><h1>One little world.<br><span>Endless possibilities.</span></h1></div>
       <p class="intro-copy" lang="zh">关于aileen的三个神秘的地点！！</p>
     </section>
-
     <section class="game-frame" aria-label="Interactive birthday game">
       <div class="scene-topline"><div class="location-now"><span class="location-pin">✦</span><span id="scene-label">THE CROSSROADS</span></div><div class="progress"><span id="progress-label">0 / 3 PLACES FOUND</span><span class="progress-track"><i id="progress-fill"></i></span></div></div>
       <div class="viewport-wrap" id="viewport-wrap">
@@ -37,7 +34,6 @@
         <div class="arrival-toast" id="arrival-toast" role="status" aria-live="polite"></div>
       </div>
       <nav class="destination-nav" aria-label="Choose a destination">
-        <span class="nav-label">CHOOSE A PATH</span>
         <button class="destination active" data-scene="crossroads" type="button"><span class="destination-icon">⌂</span><span><b>Home base</b><small>the crossroads</small></span><i class="visited-mark">✓</i></button>
         <button class="destination" data-scene="band" type="button"><span class="destination-icon">♫</span><span><b>Underground band</b><small>one loud little night</small></span><i class="visited-mark">✓</i></button>
         <button class="destination" data-scene="chicago" type="button"><span class="destination-icon">▥</span><span><b>UChicago</b><small>dreams in the making</small></span><i class="visited-mark">✓</i></button>
@@ -48,7 +44,6 @@
     <p class="mobile-hint">Tap the arrows to wander · choose a path to travel</p>
     <footer class="site-footer"><span>BUILT WITH PIXELS & A LOT OF LOVE</span><span>FOR AILEEN, ON HER 20TH <b>✦</b></span></footer>
   </main>
-
   <section class="ending" id="ending" aria-hidden="true" aria-label="A birthday candle and a message for Aileen">
     <div class="ending-night"></div>
     <div class="candle-scene"><div class="candle-glow"></div><div class="candle"><i class="wick"></i><i class="flame"></i><i class="wax-drip"></i></div></div>
