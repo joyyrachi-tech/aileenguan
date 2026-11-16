@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+  <script src="polish.js" defer></script>
 </head>
 <body>
   <main class="game-shell" id="game-shell">
@@ -22,13 +23,13 @@
 
     <section class="game-intro" aria-label="Birthday adventure introduction">
       <div><p class="kicker">A BIRTHDAY QUEST · EST. 2006</p><h1>One little world.<br><span>Endless possibilities.</span></h1></div>
-      <p class="intro-copy">Three places she loves, one brand-new decade.<br>Take Aileen for a little wander.</p>
+      <p class="intro-copy" lang="zh">关于aileen的三个神秘的地点！！</p>
     </section>
 
     <section class="game-frame" aria-label="Interactive birthday game">
       <div class="scene-topline"><div class="location-now"><span class="location-pin">✦</span><span id="scene-label">THE CROSSROADS</span></div><div class="progress"><span id="progress-label">0 / 3 PLACES FOUND</span><span class="progress-track"><i id="progress-fill"></i></span></div></div>
       <div class="viewport-wrap" id="viewport-wrap">
-        <canvas id="world" width="480" height="270" aria-label="Pixel art adventure. Use the arrow keys to walk around."></canvas>
+        <canvas id="world" width="960" height="540" aria-label="Pixel art adventure. Use the arrow keys to walk around."></canvas>
         <div class="scene-vignette" aria-hidden="true"></div>
         <div class="scene-caption"><span class="caption-marker">✦</span><span id="scene-caption">A new chapter is waiting just over the horizon.</span></div>
         <div class="controls-hint"><span>MOVE</span><kbd>←</kbd><kbd>→</kbd><span>OR</span><kbd>A</kbd><kbd>D</kbd></div>
