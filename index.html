@@ -3,81 +3,57 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fff8f5">
-  <meta name="description" content="A little corner of the internet to celebrate Aileen turning 20. Happy birthday, Aileen!">
-  <title>Happy 20th, Aileen! ✨</title>
+  <meta name="theme-color" content="#17182d">
+  <meta name="description" content="A tiny pixel-art birthday adventure for Aileen's 20th birthday.">
+  <title>Aileen’s 20th — a little adventure</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="sparkle-field" aria-hidden="true"></div>
-  <header class="topbar">
-    <a class="brand" href="#home" aria-label="Aileen's birthday home"><span class="brand-mark">a.</span><span>a little page for Aileen</span></a>
-    <a class="nav-note" href="#note">a note for you <span aria-hidden="true">↗</span></a>
-  </header>
+  <main class="game-shell" id="game-shell">
+    <header class="topbar">
+      <a class="wordmark" href="#" aria-label="Aileen's birthday adventure home"><span class="pixel-heart">♥</span><span>AILEEN’S LITTLE WORLD</span></a>
+      <div class="top-status"><span class="status-dot"></span> SAVE FILE <b>20</b></div>
+      <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" title="Toggle ambient sound"><span aria-hidden="true">♫</span><span class="sound-label">SOUND OFF</span></button>
+    </header>
 
-  <main>
-    <section class="hero" id="home" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow"><span class="eyebrow-star">✳</span> TODAY IS ALL ABOUT YOU</p>
-        <h1 id="hero-title">Happy<br><em>20th birthday,</em><br><span class="name">Aileen<span class="name-period">.</span></span></h1>
-        <p class="hero-description">Here’s to a whole new decade of big dreams, little joys, and being wonderfully, unmistakably you.</p>
-        <a class="button button-primary" href="#wishes">Let’s celebrate <span aria-hidden="true">↓</span></a>
-        <p class="tiny-note">made with lots of love, just for you <span aria-hidden="true">♡</span></p>
-      </div>
-
-      <div class="birthday-art" aria-label="Illustration of a birthday cake with twenty candles" role="img">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <span class="floating flower flower-one" aria-hidden="true">✿</span><span class="floating flower flower-two" aria-hidden="true">✿</span>
-        <span class="floating star star-one" aria-hidden="true">✦</span><span class="floating star star-two" aria-hidden="true">✧</span>
-        <div class="cake-wrap">
-          <div class="candles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="flames" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b></div>
-          <div class="cake-top"></div><div class="cake"><div class="icing"></div><div class="cake-decoration">♡　✿　♡</div></div>
-          <div class="cake-plate"></div>
-        </div>
-        <div class="twenty-badge"><span>chapter</span><strong>20</strong><span>begins ✨</span></div>
-        <p class="art-caption">make a wish, birthday girl</p>
-      </div>
-      <a class="scroll-cue" href="#wishes" aria-label="Scroll to birthday wishes"><span></span> SCROLL TO THE GOOD STUFF</a>
+    <section class="game-intro" aria-label="Birthday adventure introduction">
+      <div><p class="kicker">A BIRTHDAY QUEST · EST. 2006</p><h1>One little world.<br><span>Endless possibilities.</span></h1></div>
+      <p class="intro-copy">Three places she loves, one brand-new decade.<br>Take Aileen for a little wander.</p>
     </section>
 
-    <section class="wishes section-pad" id="wishes" aria-labelledby="wishes-title">
-      <div class="section-heading"><p class="eyebrow">A FEW THINGS WE WISH FOR YOU</p><h2 id="wishes-title">Your twenties look <em>good</em> on you.</h2><p class="section-intro">A little reminder of all the lovely things this next chapter can hold.</p></div>
-      <div class="wish-grid">
-        <article class="wish-card wish-peach"><span class="wish-icon" aria-hidden="true">☼</span><span class="wish-number">01</span><h3>More joy</h3><p>The kind that sneaks up on you in ordinary, perfectly lovely moments.</p></article>
-        <article class="wish-card wish-lilac"><span class="wish-icon" aria-hidden="true">✧</span><span class="wish-number">02</span><h3>Big adventures</h3><p>New places, brave beginnings, and stories you’ll tell for years.</p></article>
-        <article class="wish-card wish-green"><span class="wish-icon" aria-hidden="true">♡</span><span class="wish-number">03</span><h3>All the love</h3><p>From your people, from the world, and most importantly, from yourself.</p></article>
+    <section class="game-frame" aria-label="Interactive birthday game">
+      <div class="scene-topline"><div class="location-now"><span class="location-pin">✦</span><span id="scene-label">THE CROSSROADS</span></div><div class="progress"><span id="progress-label">0 / 3 PLACES FOUND</span><span class="progress-track"><i id="progress-fill"></i></span></div></div>
+      <div class="viewport-wrap" id="viewport-wrap">
+        <canvas id="world" width="480" height="270" aria-label="Pixel art adventure. Use the arrow keys to walk around."></canvas>
+        <div class="scene-vignette" aria-hidden="true"></div>
+        <div class="scene-caption"><span class="caption-marker">✦</span><span id="scene-caption">A new chapter is waiting just over the horizon.</span></div>
+        <div class="controls-hint"><span>MOVE</span><kbd>←</kbd><kbd>→</kbd><span>OR</span><kbd>A</kbd><kbd>D</kbd></div>
+        <div class="touch-controls" aria-label="Touch movement controls"><button type="button" data-move="-1" aria-label="Move left">←</button><button type="button" data-move="1" aria-label="Move right">→</button></div>
+        <div class="arrival-toast" id="arrival-toast" role="status" aria-live="polite"></div>
       </div>
+      <nav class="destination-nav" aria-label="Choose a destination">
+        <span class="nav-label">CHOOSE A PATH</span>
+        <button class="destination active" data-scene="crossroads" type="button"><span class="destination-icon">⌂</span><span><b>Home base</b><small>the crossroads</small></span><i class="visited-mark">✓</i></button>
+        <button class="destination" data-scene="band" type="button"><span class="destination-icon">♫</span><span><b>Underground band</b><small>one loud little night</small></span><i class="visited-mark">✓</i></button>
+        <button class="destination" data-scene="chicago" type="button"><span class="destination-icon">▥</span><span><b>UChicago</b><small>dreams in the making</small></span><i class="visited-mark">✓</i></button>
+        <button class="destination" data-scene="beijing" type="button"><span class="destination-icon">✿</span><span><b>Beijing</b><small>a city that feels like home</small></span><i class="visited-mark">✓</i></button>
+        <button class="wish-link" id="wish-link" type="button" disabled><span aria-hidden="true">✧</span> A final little wish <span class="lock-label">3 places to unlock</span></button>
+      </nav>
     </section>
-
-    <section class="note-section section-pad" id="note" aria-labelledby="note-title">
-      <div class="note-card">
-        <div class="note-decoration" aria-hidden="true">✿</div>
-        <p class="eyebrow">OPEN WHEN YOU’RE READY FOR A LITTLE EXTRA LOVE</p>
-        <h2 id="note-title">A birthday note<br>for <em>you.</em></h2>
-        <p class="note-teaser">There’s a little something here with your name on it.</p>
-        <button class="button button-light" id="open-note" type="button" aria-expanded="false" aria-controls="birthday-message">Open your note <span aria-hidden="true">♡</span></button>
-        <div class="birthday-message" id="birthday-message" hidden>
-          <p>Dear Aileen,</p>
-          <p>Twenty looks so lovely on you. I hope this year brings you the kind of happiness that feels like sunshine through the window, the courage to chase every dream on your heart, and a hundred tiny reasons to smile.</p>
-          <p>Thank you for being exactly who you are. You make life brighter just by being in it. Here’s to you, to everything you’ve become, and to all the wonderful things still ahead.</p>
-          <p class="signoff">Happy birthday — love you lots! <span aria-hidden="true">♡</span></p>
-        </div>
-      </div>
-    </section>
-
-    <section class="finale" aria-label="Birthday celebration">
-      <div class="finale-sparkle" aria-hidden="true">✦</div>
-      <p class="eyebrow">A NEW DECADE. A MILLION POSSIBILITIES.</p>
-      <h2>Here’s to <em>you,</em><br>Aileen.</h2>
-      <button class="button button-primary celebrate-button" id="celebrate" type="button">Send some birthday sparkle <span aria-hidden="true">✦</span></button>
-      <p class="finale-small">20 never looked so good.</p>
-    </section>
+    <p class="mobile-hint">Tap the arrows to wander · choose a path to travel</p>
+    <footer class="site-footer"><span>BUILT WITH PIXELS & A LOT OF LOVE</span><span>FOR AILEEN, ON HER 20TH <b>✦</b></span></footer>
   </main>
-  <footer><span>made for Aileen, with love</span><span>✿</span><span>the best is yet to come</span></footer>
+
+  <section class="ending" id="ending" aria-hidden="true" aria-label="A birthday candle and a message for Aileen">
+    <div class="ending-night"></div>
+    <div class="candle-scene"><div class="candle-glow"></div><div class="candle"><i class="wick"></i><i class="flame"></i><i class="wax-drip"></i></div></div>
+    <div class="ending-message"><p class="ending-kicker">THE NEXT CHAPTER IS YOURS</p><h2 lang="zh">祝Aileen<br>20岁生日快乐呀！</h2><p class="ending-translation">May this year bring you every kind of wonderful.</p></div>
+    <div class="from-joy"><span class="joy-sprite" aria-hidden="true"><i></i></span><span><small>A LITTLE NOTE FROM</small><b>your friend joy <i>♡</i></b></span></div>
+    <button class="replay-button" id="replay" type="button">↺ &nbsp;WANDER AGAIN</button>
+  </section>
 </body>
 </html>
