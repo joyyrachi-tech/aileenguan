@@ -209,7 +209,7 @@ button{font-family:inherit;color:inherit}
 
     <div id="title">
       <h1>AILEEN</h1>
-      <p>乐队的鼓点、芝加哥大学的石头塔楼、北京落日里的蓝瓦。<br>关嗷鱼儿，你想去哪里？</p>
+      <p>乐队的鼓点、芝加哥大学的石头塔楼、北京落日里的蓝瓦。<br>小嗷鱼儿，欢迎来到你的世界的其中一个小小小角</p>
       <button id="start" class="pnl">▶ 开始冒险</button>
       <div class="keys">方向键 / WASD 移动 · 空格 / E 互动 · 也可以直接点击地面和人物</div>
     </div>
@@ -246,9 +246,9 @@ function cloud(g,x,y,s){ell(g,'#cfe6f6',x,y+3*s,18*s,6*s);ell(g,'#fff',x,y,18*s,
 function icon(map,pal){const h=map.length,w=Math.max(...map.map(r=>r.length));const [c,g]=mk(w,h);
   map.forEach((row,y)=>[...row].forEach((ch,x)=>{if(pal[ch]){g.fillStyle=pal[ch];g.fillRect(x,y,1,1)}}));return c}
 const ICONS={
-  sticker:{n:'乐队贴纸',d:'一张小鸟图案的贴纸，边角已经有点翘了。',map:['.kkkkkk.','kmmmmwmk','kmmmwwmk','kmmwwwwk','kmmmmwwk','kmmmwwmk','kmmwmmmk','.kkkkkk.'],pal:{m:'#d94f8c',w:'#fff6d8',k:'#6a1b40'}},
+  sticker:{n:'乐队贴纸',d:'一张小鸟图案的贴纸，边角已经有点翘了。你先一步踏入20岁但其实也没什么大区别嘛！你还是你',map:['.kkkkkk.','kmmmmwmk','kmmmwwmk','kmmwwwwk','kmmmmwwk','kmmmwwmk','kmmwmmmk','.kkkkkk.'],pal:{m:'#d94f8c',w:'#fff6d8',k:'#6a1b40'}},
   pick:{n:'吉他拨片',d:'某个神秘吉他手 偷偷塞给你的拨片，是个mygo角色联名。',map:['.kkkkkk.','kohhoook','kohooook','kooooook','.koooook','..kooook','...kook.','....kk..'],pal:{o:'#f0a63a',h:'#ffe08a',k:'#7a4a10'}},
-  goldpick:{n:'金色拨片',d:'合奏之后拿到的金色拨片。舞台上的你真的超级帅xixi',map:['.kkkkkk.','kohhoook','kohooook','kooooook','.koooook','..kooook','...kook.','....kk..'],pal:{o:'#ffd23f',h:'#fff6c0',k:'#8a6a10'}},
+  goldpick:{n:'金色拨片',d:'合奏之后拿到的金色拨片。舞台上的你超级帅xixi',map:['.kkkkkk.','kohhoook','kohooook','kooooook','.koooook','..kooook','...kook.','....kk..'],pal:{o:'#ffd23f',h:'#fff6c0',k:'#8a6a10'}},
   ticket:{n:'演出票根',d:'地上捡到的全场站票票根，背面有人写了一个电话号码，记得多textme。',map:['kkkkkkkk','ktttttdk','ktddtttk','ktttttdk','ktddtttk','ktttttdk','kkkkkkkk'],pal:{t:'#efe2b0',d:'#c4553a',k:'#5a4a3a'}},
   coffee:{n:'一杯咖啡',d:'神秘同学 给的，已经续了四杯的那种。喝下去心情 +1。',use:'喝掉',map:['.s..s...','..s..s..','kkkkkkk.','kccccckk','kcbbbbck','.kcccck.','..kkkk..'],pal:{c:'#f2f2f2',b:'#6b3f23',k:'#3a3a4a',s:'#b8b8d0'}},
   acorn:{n:'橡果',d:'松鼠推到你脚边的橡果。很圆，很沉。',map:['...kk...','..kbbk..','.kbbbbk.','.kkkkkk.','.kcccck.','..kcck..','...kk...'],pal:{b:'#8a5a2b',c:'#c98f4a',k:'#3b2412'}},
@@ -740,24 +740,24 @@ const J={
   v_intro:['v','抵达地下现场','地下室没有座位，只有声音。鼓点从地板里传上来。'],
   v_guitar:['v','神秘吉他手 的拨片','黑头发的吉他手把拨片塞给了你，让你别告诉别人。'],
   v_neon:['v','粉色的琴','金发吉他手说，这把琴是他拿三个月房租换的。'],
-  v_drum:['v','没有名字的鼓手','鼓手不说话，只用节拍回答所有问题。'],
-  v_fan:['v','十九张糊图','yoj拍了你的十九张照片，每一张都是糊的。但是看到的你很清晰。'],
+  v_drum:['v','没有名字的鼓手','鼓手不说话，咚咚咚咚哒哒哒。咚咚哒哒哒咚咚。敲上你的脑壳子。'],
+  v_fan:['v','十九张糊图','yoj拍了你的十九张照片，每一张都有点糊糊的。但是看到的你很清晰。'],
   v_merch:['v','小鸟贴纸','周边摊上的小黄鸟贴纸，边角已经有点翘了。'],
-  v_ticket:['v','一张票根','「全场站票」，背面有人写了一个没写完的电话号码，记得callme。'],
-  v_gig:['v','站上舞台','你和乐队一起打完了一首歌，耳朵嗡嗡响了很久。'],
+  v_ticket:['v','一张票根','「全场站票」，背面有人写了一个没写完的电话号码，记得多textme。'],
+  v_gig:['v','站上舞台','hi最帅的吉他手嗷鱼！你和乐队一起打完了一首歌，耳朵嗡嗡响了很久。'],
   u_intro:['u','石头塔楼的秋天','芝加哥大学的石头，在秋天的光里是暖色的。'],
   u_evan:['u','神秘同学 的论文','还剩三十页。他把第四杯咖啡分给了你。'],
-  u_chat:['u','那件T恤','Kate 和 Dev 在聊一件很有名的T恤，聊着聊着都笑了。'],
+  u_chat:['u','那件T恤','Tshirt上印着一个关嗷鱼的大头照。'],
   u_squirrel:['u','松鼠的橡果','Hyde Park 的松鼠，大胆得有点不讲道理。'],
   u_banner:['u','栗色旗帜','路灯上的栗色旗，风一吹就像在鼓掌。'],
   u_hall:['u','哥特式塔楼','每一块石头都像在说：lockinnnnn。'],
   u_fountain:['u','喷泉许愿','你对着喷泉许了一个愿，水面闪了一下。'],
-  b_intro:['b','落日里的北京','晚霞把整座城染成了橘色。'],
+  b_intro:['b','落日里的北京','有点想念北京的秋了。想在街道上骑自行车。。'],
   b_vendor:['b','冰糖葫芦','山楂酸，糖衣甜，慢慢吃。'],
   b_uncle:['b','地上的字','大爷用水在地砖上写字。水干了，字就没了，写的时候是真的。'],
   b_lantern:['b','红灯笼','晚风里晃着的小太阳。'],
   b_temple:['b','祈年殿','三层蓝瓦的圆形大殿，在落日里发着光。'],
-  b_pigeon:['b','不怕人的鸽子','北京的鸽子和阿美利卡的不一样。。。咕咕咕']
+  b_pigeon:['b','不怕人的鸽子','咕咕咕。。。。。咕咕咕咕咕咕。。。。。。咕咕咕']
 };
 const JN=Object.keys(J).length;
 function discover(id,xp){if(S.journal[id])return false;S.journal[id]=1;save();if(xp)gain(xp);return true}
@@ -805,7 +805,7 @@ function makeScenes(){
    E.push({id:'guitar',jid:'v_guitar',x:178,y:148,sort:148,r:46,stand:[178,184],ix:178,iy:178,hit:[164,116,28,36],
      draw(g,t){const b=bob(t,8);chibi(g,178,148,LOOK.k,1,0,b);guitar(g,178,148+b,1,'#7a4a2a')},
      async use(){
-       if(!S.journal.v_guitar){await say(['k','喂嗷鱼，你站得太靠后了。往前挤挤，今晚压轴。'],['A','我是来听声音的。'],['k','那就更要站前排。这个拨片送你，别告诉别人，我只剩这一个了。']);
+       if(!S.journal.v_guitar){await say(['k','喂艾琳，你站得太靠后了。往前挤挤，今晚压轴。'],['A','yo。'],['k','这个拨片送你，别告诉别人，我只剩这一个了。']);
          addItem('pick');discover('v_guitar',12)}
        else await say(['k','音乐起来lalallalalalla。']) }});
    E.push({id:'neon',jid:'v_neon',x:304,y:148,sort:148,r:46,stand:[304,184],ix:304,iy:178,hit:[290,116,28,36],
@@ -882,10 +882,10 @@ function makeScenes(){
      update(dt){if(this.scatter>0)this.scatter-=dt},
      draw(g,t){const s=this.scatter>0?Math.min(1,(2.6-this.scatter)*1.2):0;if(this.scatter>0&&this.scatter<=1.4)return;
        [[200,250],[216,253],[190,254]].forEach(([x,y],i)=>pigeon(g,x+(this.scatter>0?(i-1)*s*40:0),y,t+i,s*60))},
-     async use(){await say(['s','（咕咕。）'],['A','它们根本不怕人。']);discover('b_pigeon',6);this.scatter=2.6;setTimeout(()=>{this.scatter=0},2600)}};
+     async use(){await say(['s','（咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕。）'],['A','呆鸽子。']);discover('b_pigeon',6);this.scatter=2.6;setTimeout(()=>{this.scatter=0},2600)}};
    E.push(pg);
    E.push(mkExit(458,238,1,[450,246],'出口'));
-   sc.first=async()=>{await say(['s','（落日把整座城都染成了橘色。）'],['A','北京。天坛的蓝瓦，在晚霞里发着光。']);discover('b_intro',5)};
+   sc.first=async()=>{await say(['s','（落日把整座城都染成了橙红色。）'],['A','北京。天坛的蓝瓦，在晚霞里发着光。']);discover('b_intro',5)};
    sc.spawn=[100,236];finishScene(sc,'bj')}
 }
 
@@ -978,7 +978,7 @@ async function finishRhythm(){
   RH.on=false;mode='talk';playSong('venue');
   const xp={S:40,A:30,B:20,C:10}[grade];
   await say(['s',`（最后一个和弦落下来。）  评价 ${grade}　PERFECT ${RH.perfect} · GOOD ${RH.good} · MISS ${RH.miss} · 最高连击 ${RH.max}`],
-    grade==='C'?['k','gay有点菜菜的']:grade==='B'?['k','还不错哟哟哟。']:['k','好强！gay还真是游戏大师']);
+    grade==='C'?['k','准确率一般嘛！aileen有点菜菜的']:grade==='B'?['k','还不错哟哟哟。']:['k','好强！gay还真是游戏大师']);
   if(grade==='C')setHearts(Math.max(1,S.hearts-1));
   if(grade==='S')setHearts(S.hearts+1);
   gain(xp);
