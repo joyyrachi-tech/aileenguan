@@ -838,7 +838,7 @@ function makeScenes(){
        if(!S.journal.u_evan){addItem('coffee');discover('u_evan',10)}await say(['A','谢谢。你一定会写完的。'])}});
    E.push({id:'chat',jid:'u_chat',x:431,y:228,sort:229,r:44,stand:[428,244],ix:428,iy:244,hit:[406,196,50,36],
      draw(g,t){const s=Math.round(Math.sin(t*2));chibi(g,420,226,LOOK.c,1,0,s);chibi(g,442,229,LOOK.v,-1,0,-s)},
-     async use(){await say(['c','你看过那件T恤吗？'],['v','「Where fun comes to die」？'],['c','对，就是那件。'],['v','可我觉得，这儿其实挺好玩的。'],['A','（也许「无聊」是学术界的谦虚。）']);discover('u_chat',8)}});
+     async use(){await say(['c','你看过那件T恤吗？'],['v','「Where fun comes to die」？'],['c','对，就是那件。'],['v','可我觉得，这儿其实挺好玩的。'],['A','（记得不要老熬夜哦。）']);discover('u_chat',8)}});
    const sq={id:'squirrel',jid:'u_squirrel',x:150,y:240,tx:150,ty:240,dir:1,sort:240,r:36,hit:[0,0,1,1],hot:true,
      update(dt,t){const dx=this.tx-this.x,dy=this.ty-this.y,d=Math.hypot(dx,dy);
        if(d>2){const sp=this.run?110:30;this.x+=dx/d*sp*dt;this.y+=dy/d*sp*dt;this.dir=dx>0?1:-1}
@@ -856,7 +856,7 @@ function makeScenes(){
      async use(){await say(['A','哥特式的塔楼……每一块石头都像在说：先去读书。']);discover('u_hall',8)}});
    E.push({id:'fountain',jid:'u_fountain',x:240,y:232,sort:3,r:40,stand:[240,258],ix:240,iy:258,hit:[176,196,130,56],spx:240,spy:196,quiet:true,
      async use(){await say(['A','喷泉……投下一枚想象的硬币吧。']);
-       const i=await choose([['愿所有乐队都不散',''],['愿论文自己写完',''],['愿下次去北京不堵车','']]);
+       const i=await choose([['（Aileen，许个愿吧！^w^）',''],['愿论文自己写完',''],['愿下次回北京，在飞机上睡个好觉','']]);
        const res=['（水面闪了一下，远处好像传来了鼓声。）','（水面没有回应。这个愿望，看来要自己动手。）','（水花溅起。……这个愿望，yoj真心祝你实现！）'];
        await say(['s',res[i]]);if(discover('u_fountain',10)){setHearts(S.hearts+1);toast('心情 +1')}}});
    E.push(mkExit(458,238,1,[448,244],'出口'));
