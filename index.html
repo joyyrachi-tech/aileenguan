@@ -167,7 +167,7 @@ button{font-family:inherit;color:inherit}
 </style>
 
 <div id="wrap">
-<div id="game" tabindex="0" aria-label="Aileen 的像素世界">
+<div id="game" tabindex="0" aria-label="Aileen 踏入20岁的世界">
   <div class="view" id="view">
     <div id="hud">
       <div class="card pnl">
@@ -209,7 +209,7 @@ button{font-family:inherit;color:inherit}
 
     <div id="title">
       <h1>AILEEN</h1>
-      <p>地下乐队的鼓点、芝加哥大学的石头塔楼、北京落日里的蓝瓦。<br>带着背包的 Aileen，今天想去哪儿？</p>
+      <p>地下乐队的鼓点、芝加哥大学的石头塔楼、北京落日里的蓝瓦。<br>关嗷鱼儿，你想去哪里？</p>
       <button id="start" class="pnl">▶ 开始冒险</button>
       <div class="keys">方向键 / WASD 移动 · 空格 / E 互动 · 也可以直接点击地面和人物</div>
     </div>
@@ -246,11 +246,11 @@ function cloud(g,x,y,s){ell(g,'#cfe6f6',x,y+3*s,18*s,6*s);ell(g,'#fff',x,y,18*s,
 function icon(map,pal){const h=map.length,w=Math.max(...map.map(r=>r.length));const [c,g]=mk(w,h);
   map.forEach((row,y)=>[...row].forEach((ch,x)=>{if(pal[ch]){g.fillStyle=pal[ch];g.fillRect(x,y,1,1)}}));return c}
 const ICONS={
-  sticker:{n:'乐队贴纸',d:'一张闪电图案的贴纸，边角已经有点翘了。',map:['.kkkkkk.','kmmmmwmk','kmmmwwmk','kmmwwwwk','kmmmmwwk','kmmmwwmk','kmmwmmmk','.kkkkkk.'],pal:{m:'#d94f8c',w:'#fff6d8',k:'#6a1b40'}},
-  pick:{n:'吉他拨片',d:'阿K 偷偷塞给你的拨片，上面有磨出来的指印。',map:['.kkkkkk.','kohhoook','kohooook','kooooook','.koooook','..kooook','...kook.','....kk..'],pal:{o:'#f0a63a',h:'#ffe08a',k:'#7a4a10'}},
-  goldpick:{n:'金色拨片',d:'合奏之后拿到的金色拨片。别弄丢了。',map:['.kkkkkk.','kohhoook','kohooook','kooooook','.koooook','..kooook','...kook.','....kk..'],pal:{o:'#ffd23f',h:'#fff6c0',k:'#8a6a10'}},
-  ticket:{n:'演出票根',d:'地上捡到的全场站票票根，背面有人写了一个电话号码。',map:['kkkkkkkk','ktttttdk','ktddtttk','ktttttdk','ktddtttk','ktttttdk','kkkkkkkk'],pal:{t:'#efe2b0',d:'#c4553a',k:'#5a4a3a'}},
-  coffee:{n:'一杯咖啡',d:'Evan 给的，已经续了四杯的那种。喝下去心情 +1。',use:'喝掉',map:['.s..s...','..s..s..','kkkkkkk.','kccccckk','kcbbbbck','.kcccck.','..kkkk..'],pal:{c:'#f2f2f2',b:'#6b3f23',k:'#3a3a4a',s:'#b8b8d0'}},
+  sticker:{n:'乐队贴纸',d:'一张小鸟图案的贴纸，边角已经有点翘了。',map:['.kkkkkk.','kmmmmwmk','kmmmwwmk','kmmwwwwk','kmmmmwwk','kmmmwwmk','kmmwmmmk','.kkkkkk.'],pal:{m:'#d94f8c',w:'#fff6d8',k:'#6a1b40'}},
+  pick:{n:'吉他拨片',d:'某个神秘吉他手 偷偷塞给你的拨片，是个mygo角色联名。',map:['.kkkkkk.','kohhoook','kohooook','kooooook','.koooook','..kooook','...kook.','....kk..'],pal:{o:'#f0a63a',h:'#ffe08a',k:'#7a4a10'}},
+  goldpick:{n:'金色拨片',d:'合奏之后拿到的金色拨片。舞台上的你真的超级帅xixi',map:['.kkkkkk.','kohhoook','kohooook','kooooook','.koooook','..kooook','...kook.','....kk..'],pal:{o:'#ffd23f',h:'#fff6c0',k:'#8a6a10'}},
+  ticket:{n:'演出票根',d:'地上捡到的全场站票票根，背面有人写了一个电话号码，记得多callme。',map:['kkkkkkkk','ktttttdk','ktddtttk','ktttttdk','ktddtttk','ktttttdk','kkkkkkkk'],pal:{t:'#efe2b0',d:'#c4553a',k:'#5a4a3a'}},
+  coffee:{n:'一杯咖啡',d:'神秘同学 给的，已经续了四杯的那种。喝下去心情 +1。',use:'喝掉',map:['.s..s...','..s..s..','kkkkkkk.','kccccckk','kcbbbbck','.kcccck.','..kkkk..'],pal:{c:'#f2f2f2',b:'#6b3f23',k:'#3a3a4a',s:'#b8b8d0'}},
   acorn:{n:'橡果',d:'松鼠推到你脚边的橡果。很圆，很沉。',map:['...kk...','..kbbk..','.kbbbbk.','.kkkkkk.','.kcccck.','..kcck..','...kk...'],pal:{b:'#8a5a2b',c:'#c98f4a',k:'#3b2412'}},
   pennant:{n:'栗色旗帜',d:'芝加哥大学的栗色小旗，风一吹就像在鼓掌。',map:['pkkkkkk.','prrrrrrk','prrwwrrk','pprrrrk.','pp.rrk..','p...k...','p.......','p.......'],pal:{r:'#8b1e2d',w:'#fff',k:'#3a0d14',p:'#c9a14a'}},
   tanghulu:{n:'冰糖葫芦',d:'山楂酸，糖衣甜。慢慢吃，心情 +1。',use:'吃掉',map:['...ss...','..krrk..','..rhrr..','..krrk..','..rhrr..','..krrk..','...ss...','...ss...'],pal:{r:'#d8262f',h:'#ff8a8a',s:'#d9b36a',k:'#5a1015'}},
@@ -738,15 +738,15 @@ function setHearts(n){S.hearts=clamp(n,0,3);renderHud();save()}
 /* ---------- journal catalogue ---------- */
 const J={
   v_intro:['v','抵达地下现场','地下室没有座位，只有声音。鼓点从地板里传上来。'],
-  v_guitar:['v','阿K 的拨片','黑头发的吉他手把拨片塞给了你，让你别告诉别人。'],
+  v_guitar:['v','神秘吉他手 的拨片','黑头发的吉他手把拨片塞给了你，让你别告诉别人。'],
   v_neon:['v','粉色的琴','金发吉他手说，这把琴是他拿三个月房租换的。'],
   v_drum:['v','没有名字的鼓手','鼓手不说话，只用节拍回答所有问题。'],
-  v_fan:['v','十三张糊图','小满拍了十三张照片，每一张都是糊的。现场本来就是糊的。'],
-  v_merch:['v','闪电贴纸','周边摊上的贴纸，边角已经有点翘了。'],
-  v_ticket:['v','一张票根','「全场站票」，背面有人写了一个没写完的电话号码。'],
+  v_fan:['v','十九张糊图','yoj拍了你的十九张照片，每一张都是糊的。现场本来就是糊的。'],
+  v_merch:['v','小鸟贴纸','周边摊上的贴纸，边角已经有点翘了。'],
+  v_ticket:['v','一张票根','「全场站票」，背面有人写了一个没写完的电话号码，记得callme。'],
   v_gig:['v','站上舞台','你和乐队一起打完了一首歌，耳朵嗡嗡响了很久。'],
   u_intro:['u','石头塔楼的秋天','芝加哥大学的石头，在秋天的光里是暖色的。'],
-  u_evan:['u','Evan 的论文','还剩三十页。他把第四杯咖啡分给了你。'],
+  u_evan:['u','神秘同学 的论文','还剩三十页。他把第四杯咖啡分给了你。'],
   u_chat:['u','那件T恤','Kate 和 Dev 在聊一件很有名的T恤，聊着聊着都笑了。'],
   u_squirrel:['u','松鼠的橡果','Hyde Park 的松鼠，大胆得有点不讲道理。'],
   u_banner:['u','栗色旗帜','路灯上的栗色旗，风一吹就像在鼓掌。'],
@@ -805,9 +805,9 @@ function makeScenes(){
    E.push({id:'guitar',jid:'v_guitar',x:178,y:148,sort:148,r:46,stand:[178,184],ix:178,iy:178,hit:[164,116,28,36],
      draw(g,t){const b=bob(t,8);chibi(g,178,148,LOOK.k,1,0,b);guitar(g,178,148+b,1,'#7a4a2a')},
      async use(){
-       if(!S.journal.v_guitar){await say(['k','喂，你站得太靠后了。往前挤挤，今晚压轴。'],['A','我是来听声音的。'],['k','那就更要站前排。这个拨片送你，别告诉别人，我只剩三个了。']);
+       if(!S.journal.v_guitar){await say(['k','喂嗷鱼，你站得太靠后了。往前挤挤，今晚压轴。'],['A','我是来听声音的。'],['k','那就更要站前排。这个拨片送你，别告诉别人，我只剩这一个了。']);
          addItem('pick');discover('v_guitar',12)}
-       else await say(['k','吉他已经哑了，但我不累。']) }});
+       else await say(['k','音乐起来lalallalalalla。']) }});
    E.push({id:'neon',jid:'v_neon',x:304,y:148,sort:148,r:46,stand:[304,184],ix:304,iy:178,hit:[290,116,28,36],
      draw(g,t){const b=bob(t,7+1);chibi(g,304,148,LOOK.n,-1,0,b);guitar(g,304,148+b,-1,'#e84a8a')},
      async use(){await say(['n','这把粉色的琴，是我拿三个月房租换的。'],['A','值得吗？'],['n','每次站上来，我都觉得值。']);discover('v_neon',10)}});
@@ -816,13 +816,13 @@ function makeScenes(){
      async use(){await say(['s','（鼓手没有抬头。只有节拍在说话。）'],['d','咚——嚓！']);discover('v_drum',8)}});
    E.push({id:'fan',jid:'v_fan',x:116,y:214,sort:214,r:34,stand:[130,220],ix:130,iy:220,
      draw(g,t){const b=Math.round(Math.abs(Math.sin(t*4))*2);chibi(g,116,214-b,LOOK.f,1,0,0);const h=((t*4)|0)%2;R(g,LOOK.f.skin,123,185+h*2-b,2,7);R(g,LOOK.f.skin,108,185+(1-h)*2-b,2,7)},
-     async use(){await say(['f','前面太挤了，来这边！'],['f','我拍了十三张，每一张都是糊的。'],['A','糊就对了。现场本来就是糊的。']);discover('v_fan',10)}});
+     async use(){await say(['f','前面太挤了，来这边！'],['f','我拍了十九张你的图片，每一张都是糊的。'],['A','糊就对了。现场本来就是糊的。']);discover('v_fan',10)}});
    E.push({id:'ticket',jid:'v_ticket',x:132,y:236,sort:236,r:22,stand:[132,242],ix:132,iy:242,hit:[120,224,26,22],quiet:true,
      draw(g,t){if(S.journal.v_ticket)return;R(g,'#efe2b0',128,234,9,5);R(g,'#c4553a',129,235,3,1);if(((t*3)|0)%2)R(g,'#fff',136,232,1,1)},
      async use(){if(S.journal.v_ticket){await say(['A','（地上只剩下啤酒渍了。）']);return}
        const d=new Date();await say(['A',`地上有张票根……「${d.getMonth()+1}月${d.getDate()}日 · 全场站票」。`]);addItem('ticket');discover('v_ticket',8)}});
    E.push({id:'merch',jid:'v_merch',x:426,y:238,sort:238,r:34,stand:[408,246],ix:408,iy:246,hit:[388,186,76,52],
-     async use(){await say(['s','（贴纸、T恤，还有手写歌词本。）'],['A','贴纸一张，闪电那款。']);
+     async use(){await say(['s','（贴纸、T恤，还有手写歌词本。）'],['A','贴纸一张，小鸟那款。']);
        if(!S.journal.v_merch){addItem('sticker');discover('v_merch',10);await say(['s','（你把零钱放进了罐子里。）'])}else await say(['A','已经有了，再买就是囤货了。'])}});
    E.push({id:'stage',x:240,y:176,sort:176,r:30,stand:[240,186],ix:240,iy:186,hit:[130,150,220,26],quiet:true,
      async use(){await say(['A','舞台就在眼前，吉他手朝这边招了招手。']);
@@ -857,7 +857,7 @@ function makeScenes(){
    E.push({id:'fountain',jid:'u_fountain',x:240,y:232,sort:3,r:40,stand:[240,258],ix:240,iy:258,hit:[176,196,130,56],spx:240,spy:196,quiet:true,
      async use(){await say(['A','喷泉……投下一枚想象的硬币吧。']);
        const i=await choose([['愿所有乐队都不散',''],['愿论文自己写完',''],['愿下次去北京不堵车','']]);
-       const res=['（水面闪了一下，远处好像传来了鼓声。）','（水面没有回应。这个愿望，看来要自己动手。）','（水花溅起。……这个愿望，有点太贪心了。）'];
+       const res=['（水面闪了一下，远处好像传来了鼓声。）','（水面没有回应。这个愿望，看来要自己动手。）','（水花溅起。……这个愿望，yoj真心祝你实现！）'];
        await say(['s',res[i]]);if(discover('u_fountain',10)){setHearts(S.hearts+1);toast('心情 +1')}}});
    E.push(mkExit(458,238,1,[448,244],'出口'));
    sc.first=async()=>{await say(['s','（秋天的石头，是暖色的。）'],['A','芝加哥大学。钟声一响，所有人都在赶路。']);discover('u_intro',5)};
@@ -1033,7 +1033,7 @@ async function goTo(id){
   playSong({venue:'venue',uchi:'uchi',bj:'bj'}[id]);fade.classList.remove('on');await sleep(250);busy=false;
   if(!S.visited[id]){S.visited[id]=1;save();await scene.first();
     if(PLACES.every(p=>S.visited[p.id])&&!S.done.all){S.done.all=1;save();await sleep(200);toast('★ 三地打卡完成');sfx.lvl();
-      await say(['A','地下室的鼓点，石头塔楼的钟声，落日里的蓝瓦。'],['A','今天的 Aileen，没有白过。'],['s','（世界还很大。想再逛逛的话，随时可以出发。）']);gain(30)}}}
+      await say(['A','地下室的鼓点，石头塔楼的钟声，落日里的蓝瓦。'],['A','今天的 Aileen度过了很丰富的一天yoyoyo'],['s','（20岁真的超年轻！世界还很大。想再逛逛的话，随时可以出发。）']);gain(30)}}}
 
 /* ---------- sheets ---------- */
 let sheetOpen=false,selItem=null;
