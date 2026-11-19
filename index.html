@@ -763,7 +763,7 @@ const JN=Object.keys(J).length;
 function discover(id,xp){if(S.journal[id])return false;S.journal[id]=1;save();if(xp)gain(xp);return true}
 
 /* ---------- dialogue ---------- */
-const WHO={A:['Aileen','A'],k:['阿K','k'],n:['Neon','n'],d:['鼓手','d'],f:['Yoj','f'],e:['Evan','e'],c:['Kate','c'],v:['Dev','v'],t:['摊主','t'],u:['大爷','u'],s:['','A'],q:['松鼠','A']};
+const WHO={A:['Aileen','A'],k:['神秘同学·','k'],n:['Neon','n'],d:['鼓手','d'],f:['Yoj','f'],e:['Evan','e'],c:['Kate','c'],v:['Dev','v'],t:['摊主','t'],u:['大爷','u'],s:['','A'],q:['松鼠','A']};
 let mode='title',dq=[],dres=null,typer=null,menuRes=null,menuOpts=[],menuSel=0;
 function showDlg(who,text){const w=WHO[who]||WHO.A;$('#who').textContent=w[0];const p=$('#por');p.getContext('2d').drawImage(portrait(w[1]),0,0);p.style.visibility=who==='s'?'hidden':'visible';
   $('#tx').textContent=text;dlg.hidden=false;$('#more').style.visibility='hidden'}
@@ -813,22 +813,22 @@ function makeScenes(){
      async use(){await say(['n','这把粉色的琴，是我拿三个月房租换的。'],['A','值得吗？'],['n','每次站上来，我都觉得值。']);discover('v_neon',10)}});
    E.push({id:'drum',jid:'v_drum',x:240,y:138,sort:138,r:54,stand:[240,184],ix:240,iy:178,hit:[222,108,36,40],
      draw(g,t){const h=((t*4)|0)%2;R(g,'#e8d8b0',231,122+h*7,1,9);R(g,'#e8d8b0',250,122+(1-h)*7,1,9);chibi(g,240,138,LOOK.d,1,0,h?-1:0)},
-     async use(){await say(['s','（鼓手没有抬头。只有节拍在说话。）'],['d','咚——嚓！']);discover('v_drum',8)}});
+     async use(){await say(['s','（鼓手没有抬头。只有节拍在说话。）'],['d','咚——嚓！咚咚咚咚咚咚咚咚咚咚的']);discover('v_drum',8)}});
    E.push({id:'fan',jid:'v_fan',x:116,y:214,sort:214,r:34,stand:[130,220],ix:130,iy:220,
      draw(g,t){const b=Math.round(Math.abs(Math.sin(t*4))*2);chibi(g,116,214-b,LOOK.f,1,0,0);const h=((t*4)|0)%2;R(g,LOOK.f.skin,123,185+h*2-b,2,7);R(g,LOOK.f.skin,108,185+(1-h)*2-b,2,7)},
-     async use(){await say(['f','前面太挤了，来这边！'],['f','我拍了十九张你的图片，每一张都是糊的。'],['A','照片本来就是糊的，但是能在现实看到我']);discover('v_fan',10)}});
+     async use(){await say(['f','前面太挤了，来这边！'],['f','我拍了十九张你的图片，每一张都有点糊糊的怎么办。'],['A','第二十张加油哟']);discover('v_fan',10)}});
    E.push({id:'ticket',jid:'v_ticket',x:132,y:236,sort:236,r:22,stand:[132,242],ix:132,iy:242,hit:[120,224,26,22],quiet:true,
      draw(g,t){if(S.journal.v_ticket)return;R(g,'#efe2b0',128,234,9,5);R(g,'#c4553a',129,235,3,1);if(((t*3)|0)%2)R(g,'#fff',136,232,1,1)},
      async use(){if(S.journal.v_ticket){await say(['A','（地上只剩下啤酒渍了。）']);return}
-       const d=new Date();await say(['A',`地上有张票根……「${d.getMonth()+1}月${d.getDate()}日 · 全场站票」。`]);addItem('ticket');discover('v_ticket',8)}});
+       const d=new Date();await say(['A',`地上有张票根……「${d.getMonth()+1}月${d.getDate()}日 · 全场vip站票」。`]);addItem('ticket');discover('v_ticket',8)}});
    E.push({id:'merch',jid:'v_merch',x:426,y:238,sort:238,r:34,stand:[408,246],ix:408,iy:246,hit:[388,186,76,52],
      async use(){await say(['s','（贴纸、T恤，还有手写歌词本。）'],['A','贴纸一张，小鸟那款。']);
-       if(!S.journal.v_merch){addItem('sticker');discover('v_merch',10);await say(['s','（你把零钱放进了罐子里。）'])}else await say(['A','已经有了，再买就是囤货了。'])}});
+       if(!S.journal.v_merch){addItem('sticker');discover('v_merch',10);await say(['s','（你把零钱放进了罐子里。）'])}else await say(['A','-w-。'])}});
    E.push({id:'stage',x:240,y:176,sort:176,r:30,stand:[240,186],ix:240,iy:186,hit:[130,150,220,26],quiet:true,
      async use(){await say(['A','舞台就在眼前，吉他手朝这边招了招手。']);
        const i=await choose([['上台合奏！','节奏小游戏'],['下次吧','']]);if(i===0)startRhythm()}});
    E.push(mkExit(30,170,-1,[34,184],'出口'));
-   sc.first=async()=>{await say(['s','（鼓点从地板下面传上来，震得鞋底发麻。）'],['A','就是这里了。没有座位，只有声音。']);discover('v_intro',5)};
+   sc.first=async()=>{await say(['s','（鼓点从地板下面传上来，震得鞋底发麻。（一些你最喜欢的音乐）'],['A','就是这里了。']);discover('v_intro',5)};
    sc.spawn=[205,228];finishScene(sc,'venue')}
   /* ---- UChicago ---- */
   {const sc=buildUChi();const E=sc.ents=[];
